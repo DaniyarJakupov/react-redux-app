@@ -5,8 +5,8 @@ class HomePage extends Component {
   render(){
     return(
       <div className="jumbotron">
-        <h1>Admin Panel</h1>
-        <p>React + Redux in ES6 for single-page web app</p>
+        <h1>React Projects Catalog</h1>
+        <p>List of single-page web apps build with React</p>
         <Link to="about" className="btn btn-primary btn-lg">Learn More</Link>
       </div>
     )
