@@ -1,0 +1,19 @@
+#app {
+  font: 14px 'Helvetica Neue', Helvetica, sans-serif;
+  color: cadetblue;
+  min-width: 550px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+a.hover {
+  text-decoration: none !important;
+}
+
+a.active {
+  color: indianred;
+}
+
+nav {
+  padding-top: 20px;
+}
