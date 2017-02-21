@@ -11,7 +11,7 @@ class HomePage extends Component {
           <Link to="about" className="btn btn-primary btn-lg">Learn More</Link>
         </div>
       </header>
-    )
+    );
   }
 }
 

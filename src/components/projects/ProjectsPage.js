@@ -6,7 +6,7 @@ class ProjectsPage extends Component{
       <div>
         <h1>Projects</h1>
       </div>
-    )
+    );
   }
 }
 
