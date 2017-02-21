@@ -6,6 +6,11 @@
   margin: 0 auto;
 }
 
+.myform {
+  width: 30%;
+  margin: 30px auto;
+}
+
 .links{
   display: inline-block;
   padding: 10px;
