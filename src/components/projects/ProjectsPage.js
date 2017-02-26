@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import * as projectAction from '../../actions/projectAction';
+
 
 class ProjectsPage extends Component{
   constructor(props){
     super(props);
+
     this.state = {
       project: {title: ''}
     };
+
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
   }
@@ -19,7 +24,7 @@ class ProjectsPage extends Component{
   }
 
   onClickSave() {
-    alert(`Saving ${this.state.project.title}`);
+    this.props.dispatch(projectAction.createProject(this.state.project));
   }
 
   render(){
@@ -40,4 +45,11 @@ class ProjectsPage extends Component{
   }
 }
 
-export default ProjectsPage;
+function mapStateToProps(state, ownProps){
+  // state from redux store
+  return {
+    projects: state.projects
+  };
+}
+
+export default connect(mapStateToProps)(ProjectsPage);
