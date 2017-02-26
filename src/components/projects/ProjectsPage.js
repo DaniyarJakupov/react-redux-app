@@ -24,6 +24,7 @@ class ProjectsPage extends Component{
   }
 
   onClickSave() {
+    //connect automatically injects dispatch prop
     this.props.dispatch(projectAction.createProject(this.state.project));
   }
 
@@ -48,7 +49,7 @@ class ProjectsPage extends Component{
 function mapStateToProps(state, ownProps){
   // state from redux store
   return {
-    projects: state.projects
+    projects: state.projects // projects property is coming from rootReducer
   };
 }
 
