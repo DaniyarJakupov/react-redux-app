@@ -6,6 +6,7 @@ import {CREATE_PROJECT} from './../actions/projectAction';
 export default function projectReducer(state = [], action){
   switch (action.type){
     case CREATE_PROJECT:
+      debugger;
       return [...state, Object.assign({}, action.payload)]; //ES6
     default:
       return state;

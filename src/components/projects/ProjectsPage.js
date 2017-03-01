@@ -28,10 +28,16 @@ class ProjectsPage extends Component{
     this.props.dispatch(projectAction.createProject(this.state.project));
   }
 
+  projectRow(project, index){
+    return <div key={index}>{project.title}</div>;
+  }
+
   render(){
+    debugger;
     return(
       <div>
         <h1>Projects</h1>
+        {this.props.projects.map(this.projectRow)}
         <h2>Add project</h2>
         <div className="myform">
           <div className="form-group">
@@ -47,6 +53,7 @@ class ProjectsPage extends Component{
 }
 
 function mapStateToProps(state, ownProps){
+  debugger;
   // state from redux store
   return {
     projects: state.projects // projects property is coming from rootReducer
