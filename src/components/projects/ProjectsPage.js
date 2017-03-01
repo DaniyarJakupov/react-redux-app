@@ -6,15 +6,16 @@ import {bindActionCreators} from 'redux';
 class ProjectsPage extends Component{
   constructor(props){
     super(props);
-
+    //Init state
     this.state = {
       project: {title: ''}
     };
-
+    // Bind functions to this
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
   }
 
+  // === Child functions ===
   onTitleChange(event) {
     const project = this.state.project;
     project.title = event.target.value;
@@ -31,7 +32,7 @@ class ProjectsPage extends Component{
   projectRow(project, index){
     return <div key={index}>{project.title}</div>;
   }
-
+  // === Render ===
   render(){
     debugger;
     return(
@@ -52,11 +53,13 @@ class ProjectsPage extends Component{
   }
 }
 
+// === Prop Type validation ===
 ProjectsPage.propTypes = {
   projects: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
+// === Redux Part ====
 function mapStateToProps(state, ownProps){
   debugger;
   // state from redux store
