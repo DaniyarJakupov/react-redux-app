@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import * as projectAction from '../../actions/projectAction';
-
+import {bindActionCreators} from 'redux';
 
 class ProjectsPage extends Component{
   constructor(props){
@@ -24,8 +24,8 @@ class ProjectsPage extends Component{
   }
 
   onClickSave() {
-    //connect automatically injects dispatch prop
-    this.props.dispatch(projectAction.createProject(this.state.project));
+    this.props.actions.createProject(this.state.project);
+    // this.setState({project: {title: ''}});
   }
 
   projectRow(project, index){
@@ -52,6 +52,11 @@ class ProjectsPage extends Component{
   }
 }
 
+ProjectsPage.propTypes = {
+  projects: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
 function mapStateToProps(state, ownProps){
   debugger;
   // state from redux store
@@ -60,4 +65,10 @@ function mapStateToProps(state, ownProps){
   };
 }
 
-export default connect(mapStateToProps)(ProjectsPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(projectAction, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectsPage);
