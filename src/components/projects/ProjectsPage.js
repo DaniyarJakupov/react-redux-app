@@ -1,7 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import * as projectAction from '../../actions/createProjectAction';
+import * as loadProjectsAction from '../../actions/loadProjectsAction';
 import {bindActionCreators} from 'redux';
+import ProjectList from './ProjectList';
 
 class ProjectsPage extends Component{
   constructor(props){
@@ -25,8 +27,7 @@ class ProjectsPage extends Component{
   }
 
   onClickSave() {
-    this.props.actions.createProject(this.state.project);
-    // this.setState({project: {title: ''}});
+    //this.props.actions.createProject(this.state.project);
   }
 
   projectRow(project, index){
@@ -34,11 +35,12 @@ class ProjectsPage extends Component{
   }
   // === Render ===
   render(){
-    debugger;
+    const {projects} = this.props;
     return(
       <div>
         <h1>Projects</h1>
-        {this.props.projects.map(this.projectRow)}
+        <ProjectList projects={projects}/>
+        {/*{this.props.projects.map(this.projectRow)}*/}
         <h2>Add project</h2>
         <div className="myform">
           <div className="form-group">
@@ -61,7 +63,6 @@ ProjectsPage.propTypes = {
 
 // === Redux Part ====
 function mapStateToProps(state, ownProps){
-  debugger;
   // state from redux store
   return {
     projects: state.projects // projects property is coming from rootReducer
@@ -70,7 +71,7 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(projectAction, dispatch)
+    actions: bindActionCreators(loadProjectsAction, dispatch)
   }
 }
 

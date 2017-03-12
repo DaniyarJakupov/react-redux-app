@@ -9,14 +9,14 @@ const projects = [
     title: "Weather App build using React+Redux",
     watchHref: "https://github.com/DaniyarJakupov/ReactReduxWeatherApp",
     authorId: "daniyar-jakupov",
-    category: "react"
+    category: "reactjs"
   },
   {
     id: "ReactBlog",
     title: "Blog App build using React+Redux",
     watchHref: "https://github.com/DaniyarJakupov/ReactBlog",
     authorId: "daniyar-jakupov",
-    category: "react"
+    category: "reactjs"
   },
   {
     id: "js-dev-env",
@@ -44,7 +44,7 @@ const projects = [
     title: "My personal website",
     watchHref: "https://github.com/DaniyarJakupov/DaniyarJakupov.github.io",
     authorId: "daniyar-jakupov",
-    category: "personal"
+    category: "gh-pages"
   }
 ];
 

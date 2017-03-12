@@ -5,10 +5,12 @@ import {Router, browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 import routes from './routes';
 import storeConfig from './store/storeConfig';
+import {loadProjects} from './actions/loadProjectsAction';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const store = storeConfig();
+store.dispatch(loadProjects()); // dispatch action to fetch projects during initial loading of the app
 
 render(
   <Provider store={store}>
