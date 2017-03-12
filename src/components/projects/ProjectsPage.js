@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import * as projectAction from '../../actions/projectAction';
+import * as projectAction from '../../actions/createProjectAction';
 import {bindActionCreators} from 'redux';
 
 class ProjectsPage extends Component{

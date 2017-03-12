@@ -1,7 +1,7 @@
 // Reducer is a function() that takes previous state, the action being dispatch and
 // returns the new state. Reducer has to be pure function.
 
-import {CREATE_PROJECT} from './../actions/projectAction';
+import {CREATE_PROJECT} from '../actions/createProjectAction';
 
 export default function projectReducer(state = [], action){
   switch (action.type){
