@@ -10,7 +10,7 @@ import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const store = storeConfig();
-store.dispatch(loadProjects()); // dispatch action to fetch projects during initial loading of the app
+store.dispatch(loadProjects()); // dispatch action to fetch project during initial loading of the app
 
 render(
   <Provider store={store}>

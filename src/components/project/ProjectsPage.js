@@ -40,7 +40,7 @@ class ProjectsPage extends Component{
       <div>
         <h1>Projects</h1>
         <ProjectList projects={projects}/>
-        {/*{this.props.projects.map(this.projectRow)}*/}
+        {/*{this.props.project.map(this.projectRow)}*/}
         <h2>Add project</h2>
         <div className="myform">
           <div className="form-group">
@@ -65,7 +65,7 @@ ProjectsPage.propTypes = {
 function mapStateToProps(state, ownProps){
   // state from redux store
   return {
-    projects: state.projects // projects property is coming from rootReducer
+    projects: state.projects // project property is coming from rootReducer
   };
 }
 

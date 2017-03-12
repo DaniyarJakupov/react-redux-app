@@ -9,7 +9,7 @@ export default function projectReducer(state = [], action){
     // case CREATE_PROJECT:
     //   return [...state, Object.assign({}, action.payload)]; //ES6
     case LOAD_PROJECTS_SUCCESS:
-      return action.projects; // projects which were passed in on the loadProjectsAction
+      return action.projects; // project which were passed in on the loadProjectsAction
     default:
       return state;
   }
