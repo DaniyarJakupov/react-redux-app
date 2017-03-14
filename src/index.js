@@ -6,11 +6,13 @@ import {Provider} from 'react-redux';
 import routes from './routes';
 import storeConfig from './store/storeConfig';
 import {loadProjects} from './actions/loadProjectsAction';
+import {loadAuthors} from './actions/authorAction';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const store = storeConfig();
 store.dispatch(loadProjects()); // dispatch action to fetch project during initial loading of the app
+store.dispatch(loadAuthors());
 
 render(
   <Provider store={store}>
