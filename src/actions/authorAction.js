@@ -10,7 +10,7 @@ export function loadAuthorSuccess(authors){
 }
 
 // Thunk function for async api calls
-export function loadAuthor(){
+export function loadAuthors(){
   return function(dispatch){
     //getAllAuthors will return promise which contains array of objects
     return authorApi.getAllAuthors().then((author) => {
