@@ -3,8 +3,9 @@
 
 import {CREATE_PROJECT} from '../actions/createProjectAction';
 import {LOAD_PROJECTS_SUCCESS} from '../actions/loadProjectsAction';
+import initialState from './initialState';
 
-export default function projectReducer(state = [], action){
+export default function projectReducer(state = initialState.projects, action){
   switch (action.type){
     // case CREATE_PROJECT:
     //   return [...state, Object.assign({}, action.payload)]; //ES6
