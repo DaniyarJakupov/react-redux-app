@@ -19,7 +19,7 @@ class ManageProjectPage extends Component {
         <ProjectForm
           project={this.state.project}
           errors={this.state.errors}
-          allAuthors={[]}
+          allAuthors={this.props.authors}
         />
       </div>
     );
@@ -28,15 +28,23 @@ class ManageProjectPage extends Component {
 
 // ======= Prop Type validation =======
 ManageProjectPage.propTypes = {
-  project: PropTypes.object.isRequired
+  project: PropTypes.object.isRequired,
+  authors: PropTypes.array.isRequired
 };
 
 // ======= Redux Part =========
 function mapStateToProps(state, ownProps) {
   let project = {id:'', watchHref:'', title: '', authorId:'', category: ''};
+  const authorsFormattedForDropdown = state.authors.map(author => {
+    return {
+      value: author.id,
+      text: author.firstName + ' ' + author.lastName
+    };
+  });
   // state from redux store
   return {
-    project: project
+    project: project,
+    authors: authorsFormattedForDropdown
   };
 }
 
