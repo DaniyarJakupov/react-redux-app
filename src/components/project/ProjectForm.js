@@ -39,7 +39,7 @@ const ProjectForm = ({project, allAuthors, onSave, onChange, saving, errors}) =>
 };
 
 ProjectForm.propTypes = {
-  course: React.PropTypes.object.isRequired,
+  project: React.PropTypes.object.isRequired,
   allAuthors: React.PropTypes.array,
   onSave: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,

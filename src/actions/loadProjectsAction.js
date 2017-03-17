@@ -6,7 +6,7 @@ export function loadProjectsSuccess(projects){
   return {
     type: LOAD_PROJECTS_SUCCESS,
     projects
-  }
+  };
 }
 
 // Thunk function for async api calls
@@ -18,5 +18,5 @@ export function loadProjects(){
     }).catch(error => {
       throw(error);
     });
-  }
+  };
 }

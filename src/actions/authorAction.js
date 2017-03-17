@@ -6,7 +6,7 @@ export function loadAuthorSuccess(authors){
   return {
     type: LOAD_AUTHOR_SUCCESS,
     authors
-  }
+  };
 }
 
 // Thunk function for async api calls
@@ -18,5 +18,5 @@ export function loadAuthors(){
     }).catch(error => {
       throw(error);
     });
-  }
+  };
 }

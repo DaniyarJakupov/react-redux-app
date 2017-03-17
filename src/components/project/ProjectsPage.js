@@ -72,7 +72,7 @@ function mapStateToProps(state, ownProps){
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(loadProjectsAction, dispatch)
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectsPage);
