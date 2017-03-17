@@ -11,6 +11,14 @@ class ManageProjectPage extends Component {
       project: Object.assign({}, this.props.project),
       errors: {}
     };
+    this.updateProjectState = this.updateProjectState.bind(this);
+  }
+
+  updateProjectState(event){
+    const field = event.target.name;
+    let project = this.state.project;
+    project[field] = event.target.value;
+    return this.setState({project: project});
   }
 
   render() {
@@ -20,6 +28,7 @@ class ManageProjectPage extends Component {
           project={this.state.project}
           errors={this.state.errors}
           allAuthors={this.props.authors}
+          onChange={this.updateProjectState}
         />
       </div>
     );
