@@ -25,6 +25,7 @@ class ManageProjectPage extends Component {
   saveProject(event){
     event.preventDefault();
     this.props.actions.saveProject(this.state.project);
+    this.context.router.push('/projects');
   }
 
   render() {
@@ -49,6 +50,10 @@ ManageProjectPage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
+// Pull in react router context so router is available at this.context.router
+ManageProjectPage.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 // ======= Redux Part =========
 function mapStateToProps(state, ownProps) {
   let project = {id:'', watchHref:'', title: '', authorId:'', category: ''};
