@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as projectActions from '../../actions/loadProjectsAction';
+import * as projectAction from '../../actions/projectAction';
 import ProjectForm from './ProjectForm';
 
 class ManageProjectPage extends Component {
@@ -12,6 +12,7 @@ class ManageProjectPage extends Component {
       errors: {}
     };
     this.updateProjectState = this.updateProjectState.bind(this);
+    this.saveProject = this.saveProject.bind(this);
   }
 
   updateProjectState(event){
@@ -19,6 +20,11 @@ class ManageProjectPage extends Component {
     let project = this.state.project;
     project[field] = event.target.value;
     return this.setState({project: project});
+  }
+
+  saveProject(event){
+    event.preventDefault();
+    this.props.actions.saveProject(this.state.project);
   }
 
   render() {
@@ -29,6 +35,7 @@ class ManageProjectPage extends Component {
           errors={this.state.errors}
           allAuthors={this.props.authors}
           onChange={this.updateProjectState}
+          onSave={this.saveProject}
         />
       </div>
     );
@@ -38,7 +45,8 @@ class ManageProjectPage extends Component {
 // ======= Prop Type validation =======
 ManageProjectPage.propTypes = {
   project: PropTypes.object.isRequired,
-  authors: PropTypes.array.isRequired
+  authors: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 // ======= Redux Part =========
@@ -59,7 +67,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(projectActions, dispatch)
+    actions: bindActionCreators(projectAction, dispatch)
   };
 }
 

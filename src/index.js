@@ -5,7 +5,7 @@ import {Router, browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 import routes from './routes';
 import storeConfig from './store/storeConfig';
-import {loadProjects} from './actions/loadProjectsAction';
+import {loadProjects} from './actions/projectAction';
 import {loadAuthors} from './actions/authorAction';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

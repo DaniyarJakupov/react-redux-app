@@ -1,33 +1,32 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import * as projectAction from '../../actions/createProjectAction';
-import * as loadProjectsAction from '../../actions/loadProjectsAction';
+import * as loadProjectsAction from '../../actions/projectAction';
 import {bindActionCreators} from 'redux';
 import ProjectList from './ProjectList';
+import {browserHistory} from 'react-router';
 
 class ProjectsPage extends Component{
-  constructor(props){
-    super(props);
-    //Init state
-    this.state = {
-      project: {title: ''}
-    };
+  constructor(props, context){
+    super(props, context);
     // Bind functions to this
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onClickSave = this.onClickSave.bind(this);
+    this.redirectToAddProjectPage = this.redirectToAddProjectPage.bind(this);
   }
 
-  // === Child functions ===
-  onTitleChange(event) {
-    const project = this.state.project;
-    project.title = event.target.value;
-    this.setState({
-      project: project
-    });
-  }
+  // // === Child functions ===
+  // onTitleChange(event) {
+  //   const project = this.state.project;
+  //   project.title = event.target.value;
+  //   this.setState({
+  //     project: project
+  //   });
+  // }
 
-  onClickSave() {
-    //this.props.actions.createProject(this.state.project);
+  // onClickSave() {
+  //   //this.props.actions.createProject(this.state.project);
+  // }
+
+  redirectToAddProjectPage(){
+    browserHistory.push('/project');
   }
 
   projectRow(project, index){
@@ -39,17 +38,13 @@ class ProjectsPage extends Component{
     return(
       <div>
         <h1>Projects</h1>
-        <ProjectList projects={projects}/>
-        {/*{this.props.project.map(this.projectRow)}*/}
-        <h2>Add project</h2>
-        <div className="myform">
-          <div className="form-group">
-            <input type="text" onChange={this.onTitleChange} value={this.state.project.title} className="form-control"/>
-          </div>
-          <div className="form-group">
-            <input type="submit" value="Save" onClick={this.onClickSave} className="btn btn-info btn-block"/>
-          </div>
-        </div>
+        <input
+          type="submit"
+          value="Add Project"
+          onClick={this.redirectToAddProjectPage}
+          className="btn btn-info"
+        />
+        <ProjectList projects={projects} />
       </div>
     );
   }
