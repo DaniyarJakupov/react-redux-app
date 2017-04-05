@@ -55,8 +55,18 @@ ManageProjectPage.contextTypes = {
   router: PropTypes.object.isRequired
 };
 // ======= Redux Part =========
-function mapStateToProps(state, ownProps) {
+function getProjectById(projects, id){
+  const project = projects.filter(project => project.id === id);
+  if(project !== undefined) return project[0]; // since filter returns an array, we need the first element
+  return null;
+}
+
+function mapStateToProps( state, ownProps ) {
+  const projectId = ownProps.params.id; // from the path '/project/:id'
   let project = {id:'', watchHref:'', title: '', authorId:'', category: ''};
+  if(projectId !== undefined && state.projects.length > 0){
+    project = getProjectById(state.projects, projectId);
+  }
   const authorsFormattedForDropdown = state.authors.map(author => {
     return {
       value: author.id,
