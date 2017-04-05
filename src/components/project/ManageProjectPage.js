@@ -14,6 +14,15 @@ class ManageProjectPage extends Component {
     this.updateProjectState = this.updateProjectState.bind(this);
     this.saveProject = this.saveProject.bind(this);
   }
+  // Lifecycle func; will run every time props have changed
+  componentWillReceiveProps(nextProps) {
+    if(this.props.project.id !== nextProps.project.id) {
+      // Necessary to populate form when existing project is loaded directly
+      this.setState(
+        {project: Object.assign({}, nextProps.project)}
+      );
+    }
+  }
 
   updateProjectState(event){
     const field = event.target.name;
