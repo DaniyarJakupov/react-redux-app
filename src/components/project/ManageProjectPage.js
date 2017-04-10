@@ -9,7 +9,8 @@ class ManageProjectPage extends Component {
     super(props, context);
     this.state = {
       project: Object.assign({}, this.props.project),
-      errors: {}
+      errors: {},
+      saving: false
     };
     this.updateProjectState = this.updateProjectState.bind(this);
     this.saveProject = this.saveProject.bind(this);
@@ -32,11 +33,13 @@ class ManageProjectPage extends Component {
   }
 
   redirect(){
+    this.setState({saving: false});
     this.context.router.push('/projects');
   }
 
   saveProject(event){
     event.preventDefault();
+    this.setState({saving: true});
     this.props.actions.saveProject(this.state.project)
       .then(() => this.redirect());
   }
@@ -47,6 +50,7 @@ class ManageProjectPage extends Component {
         <ProjectForm
           project={this.state.project}
           errors={this.state.errors}
+          saving={this.state.saving}
           allAuthors={this.props.authors}
           onChange={this.updateProjectState}
           onSave={this.saveProject}
