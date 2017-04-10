@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as projectAction from '../../actions/projectAction';
 import ProjectForm from './ProjectForm';
+import toastr from 'toastr';
+
 
 class ManageProjectPage extends Component {
   constructor(props, context) {
@@ -34,6 +36,7 @@ class ManageProjectPage extends Component {
 
   redirect(){
     this.setState({saving: false});
+    toastr.success('Project saved');
     this.context.router.push('/projects');
   }
 
