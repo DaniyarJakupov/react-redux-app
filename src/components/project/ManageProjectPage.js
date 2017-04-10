@@ -31,10 +31,14 @@ class ManageProjectPage extends Component {
     return this.setState({project: project});
   }
 
+  redirect(){
+    this.context.router.push('/projects');
+  }
+
   saveProject(event){
     event.preventDefault();
-    this.props.actions.saveProject(this.state.project);
-    this.context.router.push('/projects');
+    this.props.actions.saveProject(this.state.project)
+      .then(() => this.redirect());
   }
 
   render() {

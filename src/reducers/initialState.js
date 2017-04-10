@@ -1,4 +1,5 @@
 export default {
   authors: [],
-  projects: []
+  projects: [],
+  numAjaxCallsInProgress: 0
 };
